@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
+             http://www.oracle.com/webfolder/technetwork/jsc/xml/ns/persistence/persistence_2_1.xsd" version="2.1">
+
+    <persistence-unit name="eventStore" transaction-type="JTA">
+
+        <class>org.axonframework.eventsourcing.eventstore.jpa.DomainEventEntry</class>
+        <class>org.axonframework.eventsourcing.eventstore.jpa.SnapshotEventEntry</class>
+
+        <properties>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+            <property name="hibernate.dialect" value="io.quarkus.hibernate.orm.runtime.dialect.QuarkusH2Dialect"/>
+        </properties>
+    </persistence-unit>
+
+</persistence>
